@@ -118,10 +118,10 @@ module.exports = app => {
         return tree
     }
 
-    const getTree = (req, res) => {
+    const getTree = (req,resp) => {
         app.db('categories')
-            .then(categories => res.json(toTree(categories)))
-            .catch(err => res.status(500).send(err))
+            .then(categories => resp.json(toTree(categories)))
+            .catch(erro => resp.status(500).send(erro))
     }
 
     return {
